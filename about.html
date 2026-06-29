@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Unit - SRI SUMANGALA NATIONAL SCHOOL</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+        body { 
+            font-family: 'Poppins', 'Noto Sans Sinhala', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background: linear-gradient(135deg, #020617 0%, #071430 40%, #0b2559 100%);
+            background-attachment: fixed;
+            color: #f8fafc; 
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Liquid Glass Header */
+        header { 
+            background: rgba(2, 6, 23, 0.5); 
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            color: white; 
+            padding: 25px 40px; 
+            border-bottom: 2px solid rgba(255, 204, 0, 0.4); 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-text { text-align: center; flex: 1; }
+        header h1 { margin: 0; font-size: 2.6rem; font-weight: 700; letter-spacing: 2px; }
+        header p { margin: 6px 0 0 0; color: #FFCC00; font-size: 1.1rem; font-weight: 500; }
+        
+        .header-logo { width: 95px; height: 95px; object-fit: contain; }
+        
+        /* Navigation Bar */
+        nav { 
+            background: rgba(15, 23, 42, 0.4); 
+            backdrop-filter: blur(10px);
+            padding: 16px; 
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        nav a { 
+            color: #cbd5e1; 
+            text-decoration: none; 
+            margin: 0 6px; 
+            font-weight: 600; 
+            font-size: 0.95rem; 
+            padding: 10px 20px;
+            border-radius: 30px; 
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+        }
+        nav a:hover, nav a.active { 
+            color: #FFCC00; 
+            background: rgba(255, 204, 0, 0.15);
+            border-color: rgba(255, 204, 0, 0.6);
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.35);
+            transform: translateY(-3px); 
+        }
+        
+        .container { max-width: 1140px; margin: 40px auto; padding: 0 20px; display: flex; flex-wrap: wrap; gap: 30px; }
+        
+        /* Main Glass Container */
+        .main-content { 
+            flex: 2; 
+            min-width: 300px; 
+            background: rgba(255, 255, 255, 0.06); 
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 35px; 
+            border-radius: 20px; 
+            border: 1px solid rgba(255, 255, 255, 0.13);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Sidebar Glass Container */
+        .sidebar { 
+            flex: 1; 
+            min-width: 250px; 
+            background: rgba(255, 255, 255, 0.04); 
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 35px; 
+            border-radius: 20px; 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 5px solid rgba(255, 204, 0, 0.7); 
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.25);
+        }
+        
+        h2 { color: #FFCC00; font-size: 1.6rem; font-weight: 700; border-bottom: 2px solid rgba(255, 204, 0, 0.3); padding-bottom: 10px; margin-top: 0; }
+        h3 { color: #FFCC00; font-size: 1.25rem; margin-top: 0; margin-bottom: 10px; }
+        p { line-height: 1.8; color: #e2e8f0; font-size: 1rem; }
+        
+        /* Vision & Mission Inner Grid */
+        .vision-mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .sub-glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 20px;
+            border-radius: 14px;
+            box-shadow: inset 0 1px 1px rgba(255,255,255,0.05);
+        }
+        
+        /* Table Style */
+        .info-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .info-table td { padding: 14px 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.95rem; }
+        .info-table td:first-child { font-weight: 600; color: #FFCC00; width: 45%; }
+        .info-table td:last-child { color: #cbd5e1; }
+        
+        footer { 
+            background: rgba(2, 6, 23, 0.7);
+            backdrop-filter: blur(10px);
+            color: #94a3b8; 
+            text-align: center; 
+            padding: 25px; 
+            border-top: 2px solid rgba(255, 204, 0, 0.3); 
+            margin-top: 60px; 
+        }
+        
+        @media (max-width: 768px) {
+            header { flex-direction: column; text-align: center; padding: 25px 20px; }
+            header h1 { font-size: 2.2rem; }
+            .header-logo { width: 80px; height: 80px; }
+            .container { margin: 20px auto; }
+            nav a { margin: 5px; padding: 8px 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="images/school-logo.JPG" alt="School Logo" class="header-logo">
+        <div class="header-text">
+            <h1>MEDIA UNIT</h1>
+            <p>SRI SUMANGALA NATIONAL SCHOOL</p>
+        </div>
+        <img src="images/media-logo.JPG" alt="Media Unit Logo" class="header-logo">
+    </header>
+
+    <nav>
+        <a href="index.html">HOME</a> 
+        <a href="photos.html">PHOTOS</a>
+        <a href="videos.html">VIDEOS</a>
+        <a href="about.html" class="active">ABOUT</a>
+        <a href="live.html">LIVE</a>
+    </nav>
+
+    <div class="container">
+        <div class="main-content">
+            <h2>Who We Are</h2>
+            <p>අප පාසල් මාධ්‍ය ඒකකය යනු සිසුන්ගේ සන්නිවේදන, නිර්මාණශීලී සහ තාක්ෂණික කුසලතා ඔප්නැංවීම වෙනුවෙන් කැපවී ක්‍රියා කරන ප්‍රධානතම ශිෂ්‍ය සංගමයකි. පාසලේ සියලුම නිල උත්සව වාර්තාකරණය, සජීවී විකාශන කටයුතු, ඡායාරූපකරණය මෙන්ම වීඩියෝ සංස්කරණය ද සිදු කරනු ලබන්නේ අප ඒකකය මඟිනි.</p>
+            
+            <div class="vision-mission-grid">
+                <div class="sub-glass-card">
+                    <h3>අපේ දැක්ම (Vision)</h3>
+                    <p style="font-size: 0.95rem; color: #cbd5e1;">තොරතුරු තාක්ෂණය සහ සන්නිවේදනය උපයෝගී කරගනිමින් පාසල් මාධ්‍ය කලාවේ විශිෂ්ටතම පෙරගමන්කරුවා වීම.</p>
+                </div>
+                <div class="sub-glass-card">
+                    <h3>අපේ මෙහෙවර (Mission)</h3>
+                    <p style="font-size: 0.95rem; color: #cbd5e1;">නවීන තාක්ෂණික මෙවලම් නිවැරදිව භාවිත කරමින්, නිර්මාණශීලී සහ වගකිවයුතු අනාගත මාධ්‍යවේදීන් පිරිසක් බිහිකිරීම.</p>
+                </div>
+            </div>
+
+            <p>දිගු ඉතිහාසයකට උරුමකම් කියන අප මාධ්‍ය ඒකකය, වාර්ෂික මාධ්‍ය දින උත්සව, පුහුණු වැඩමුළු සහ අන්තර් පාසල් තරඟාවලි රැසක් සංවිධානය කරමින් සිසුන්ගේ ඉදිරි ගමන ශක්තිමත් කිරීමට නිරන්තරයෙන්ම කටයුතු කරයි.</p>
+        </div>
+
+        <div class="sidebar">
+            <h2>Quick Facts</h2>
+            <table class="info-table">
+                <tr><td>ආරම්භක වර්ෂය:</td><td>2010</td></tr>
+                <tr><td>නිල තේමාව:</td><td>Voice of Truth</td></tr>
+                <tr><td>සක්‍රීය සාමාජිකයින්:</td><td>50+ වැඩි</td></tr>
+                <tr><td>භාර ආචාර්ය:</td><td>ගුරු මණ්ඩලය</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Media Unit Website. Built on High-End Glassmorphic Visuals.</p>
+    </footer>
+
+</body>
+</html>

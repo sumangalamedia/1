@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Unit -SRI SUMANGALA NATIONAL SCHOOL</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+        body { 
+            font-family: 'Poppins', 'Noto Sans Sinhala', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background: linear-gradient(135deg, #020617 0%, #071430 40%, #0b2559 100%);
+            background-attachment: fixed;
+            color: #f8fafc; 
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Liquid Glass Header */
+        header { 
+            background: rgba(2, 6, 23, 0.5); 
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            color: white; 
+            padding: 25px 40px; 
+            border-bottom: 2px solid rgba(255, 204, 0, 0.4); 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-text { text-align: center; flex: 1; }
+        header h1 { margin: 0; font-size: 2.6rem; font-weight: 700; letter-spacing: 2px; }
+        header p { margin: 6px 0 0 0; color: #FFCC00; font-size: 1.1rem; font-weight: 500; }
+        
+        .header-logo { width: 95px; height: 95px; object-fit: contain; }
+        
+        /* Navigation Bar */
+        nav { 
+            background: rgba(15, 23, 42, 0.4); 
+            backdrop-filter: blur(10px);
+            padding: 16px; 
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        nav a { 
+            color: #cbd5e1; 
+            text-decoration: none; 
+            margin: 0 8px; 
+            font-weight: 600; 
+            font-size: 0.95rem; 
+            padding: 10px 22px;
+            border-radius: 30px; 
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+        }
+        nav a:hover, nav a.active { 
+            color: #FFCC00; 
+            background: rgba(255, 204, 0, 0.15);
+            border-color: rgba(255, 204, 0, 0.6);
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.35);
+            transform: translateY(-3px); 
+        }
+        
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        
+        h2 { color: #FFCC00; font-size: 1.8rem; font-weight: 700; border-bottom: 2px solid rgba(255, 204, 0, 0.3); padding-bottom: 10px; margin-top: 0; }
+        
+        /* [Photo Grid System] */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+        
+        /* [Liquid Glass Photo Card] */
+        .photo-card {
+            background: rgba(255, 255, 255, 0.06); 
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 16px; 
+            border: 1px solid rgba(255, 255, 255, 0.13);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            padding: 12px;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .photo-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 204, 0, 0.4);
+            box-shadow: 0 25px 45px rgba(0, 51, 102, 0.35);
+        }
+        
+        /* Photo Frame */
+        .photo-wrapper {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .photo-wrapper img { 
+            width: 100%; 
+            display: block; 
+            height: 200px; 
+            object-fit: cover; /* ෆොටෝ එක කොටුවට හරියන්න auto කැපී හැඩගැසීමට */
+            transition: transform 0.5s ease;
+        }
+        .photo-card:hover .photo-wrapper img {
+            transform: scale(1.05); /* Hover කරද්දී ෆොටෝ එක ලාවට zoom වීම */
+        }
+        
+        /* Card Text Style */
+        .photo-info { padding: 12px 5px 5px 5px; }
+        .photo-info h3 { margin: 0 0 6px 0; color: #FFCC00; font-size: 1.15rem; font-weight: 600; }
+        .photo-info p { margin: 0; color: #cbd5e1; font-size: 0.88rem; line-height: 1.5; }
+        
+        footer { 
+            background: rgba(2, 6, 23, 0.7);
+            backdrop-filter: blur(10px);
+            color: #94a3b8; 
+            text-align: center; 
+            padding: 25px; 
+            border-top: 2px solid rgba(255, 204, 0, 0.3); 
+            margin-top: 60px; 
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="images/school-logo.JPG" alt="School Logo" class="header-logo">
+        <div class="header-text">
+            <h1>MEDIA UNIT</h1>
+            <p>SRI SUMANGALA NATIONAL SCHOOL</p>
+        </div>
+        <img src="images/media-logo.JPG" alt="Media Unit Logo" class="header-logo">
+    </header>
+
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="photos.html" class="active">PHOTOS</a>
+        <a href="videos.html">VIDEOS</a>
+        <a href="about.html">ABOUT</a>
+        <a href="live.html">LIVE</a>
+
+    </nav>
+
+    <div class="container">
+        <h2>Media Unit Image Gallery</h2>
+        
+        <!-- JavaScript එක මඟින් පින්තූර slots මෙතනට auto එකතු කරයි -->
+        <div class="photo-grid" id="photo-gallery-container"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Media Unit Website. Infinite Liquid Glass Image Engine.</p>
+    </footer>
+
+    <!-- ෆොටෝ ලැයිස්තුව පාලනය කරන JavaScript කෝඩ් එක -->
+    <script>
+        /* 
+          [භාවිතා කරන ආකාරය]:
+          ඔයා 'images' ෆෝල්ඩරයට දාන පින්තූර වල නම්, මාතෘකා සහ විස්තර 
+          පහත ලැයිස්තුවට ඇතුලත් කරන්න. ඔයා මෙතනට දාන හැම එකටම 
+          වෙබ් පිටුවේ අලුත් Photo Slot එකක් auto හැදෙනවා!
+        */
+        const myImages = [
+            { file: "main-photo.jpg", title: "Sports Meet 2026", desc: "නිවාසාන්තර ක්‍රීඩා උත්සවයේ සමූහ ඡායාරූපය." },
+            { file: "gallery1.jpg", title: "Media Workshop", desc: "නවක සාමාජිකයින් දැනුවත් කිරීමේ වැඩමුළුව." },
+            { file: "gallery2.jpg", title: "Announcing Panel", desc: "නිවේදන කටයුතු මෙහෙයවූ නිවේදක මණ්ඩලය." },
+            { file: "gallery3.jpg", title: "Photography Team", desc: "උත්සවය කැමරාකරණයෙන් හැඩකල අපේ කණ්ඩායම." }
+            
+            // තවත් ෆොටෝ දාන්න ඕන නම්, අගට කොමාවක් (,) දාලා මේ වගේ අලුත් පේළියක් එකතු කරන්න:
+            // { file: "ඔයාගේ_ෆොටෝ_නම.jpg", title: "මාතෘකාව", desc: "විස්තරය" }
+        ];
+
+        // ලැයිස්තුව කියවා HTML slots සාදන ක්‍රියාවලිය
+        const galleryContainer = document.getElementById('photo-gallery-container');
+        
+        myImages.forEach(img => {
+            const cardHTML = `
+                <div class="photo-card">
+                    <div class="photo-wrapper">
+                        <img src="images/${img.file}" alt="${img.title}">
+                    </div>
+                    <div class="photo-info">
+                        <h3>${img.title}</h3>
+                        <p>${img.desc}</p>
+                    </div>
+                </div>
+            `;
+            galleryContainer.innerHTML += cardHTML;
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Unit -SRI SUMANGALA NATIONAL SCHOOL</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+        body { 
+            font-family: 'Poppins', 'Noto Sans Sinhala', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background: linear-gradient(135deg, #020617 0%, #071430 40%, #0b2559 100%);
+            background-attachment: fixed;
+            color: #f8fafc; 
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Liquid Glass Header */
+        header { 
+            background: rgba(2, 6, 23, 0.5); 
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            color: white; 
+            padding: 25px 40px; 
+            border-bottom: 2px solid rgba(255, 204, 0, 0.4); 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-text { text-align: center; flex: 1; }
+        header h1 { margin: 0; font-size: 2.6rem; font-weight: 700; letter-spacing: 2px; }
+        header p { margin: 6px 0 0 0; color: #FFCC00; font-size: 1.1rem; font-weight: 500; }
+        
+        .header-logo { width: 95px; height: 95px; object-fit: contain; }
+        
+        /* Navigation Bar */
+        nav { 
+            background: rgba(15, 23, 42, 0.4); 
+            backdrop-filter: blur(10px);
+            padding: 16px; 
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        nav a { 
+            color: #cbd5e1; 
+            text-decoration: none; 
+            margin: 0 10px; 
+            font-weight: 600; 
+            font-size: 0.95rem; 
+            padding: 10px 24px;
+            border-radius: 30px; 
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+        }
+        nav a:hover, nav a.active { 
+            color: #FFCC00; 
+            background: rgba(255, 204, 0, 0.15);
+            border-color: rgba(255, 204, 0, 0.6);
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.35);
+            transform: translateY(-3px); 
+        }
+        
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        
+        h2 { color: #FFCC00; font-size: 1.8rem; font-weight: 700; border-bottom: 2px solid rgba(255, 204, 0, 0.3); padding-bottom: 10px; margin-top: 0; }
+        
+        /* [HD Video Grid System] - වීඩියෝ slots ඕනෑම ගණනක් ලස්සනට පෙළගස්වන Grid එක */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 25px;
+        }
+        
+        /* [Liquid Glass Video Card] */
+        .video-card {
+            background: rgba(255, 255, 255, 0.06); 
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px; 
+            border: 1px solid rgba(255, 255, 255, 0.13);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.25);
+            padding: 15px;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .video-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 204, 0, 0.4);
+            box-shadow: 0 30px 50px rgba(0, 51, 102, 0.3);
+        }
+        
+        /* Video Player Frame */
+        .video-wrapper {
+            width: 100%;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        video { width: 100%; display: block; max-height: 220px; object-fit: cover; }
+        
+        /* Card Text Style */
+        .video-info { padding: 15px 5px 5px 5px; }
+        .video-info h3 { margin: 0 0 8px 0; color: #FFCC00; font-size: 1.2rem; font-weight: 600; }
+        .video-info p { margin: 0; color: #cbd5e1; font-size: 0.9rem; line-height: 1.5; }
+        
+        footer { 
+            background: rgba(2, 6, 23, 0.7);
+            backdrop-filter: blur(10px);
+            color: #94a3b8; 
+            text-align: center; 
+            padding: 25px; 
+            border-top: 2px solid rgba(255, 204, 0, 0.3); 
+            margin-top: 60px; 
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="images/school-logo.jpg" alt="School Logo" class="header-logo">
+        <div class="header-text">
+            <h1>MEDIA UNIT</h1>
+            <p>SRI SUMANGALA NATIONAL SCHOOL</p>
+        </div>
+        <img src="images/media-logo.JPG" alt="Media Unit Logo" class="header-logo">
+    </header>
+
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="photos.html">PHOTOS</a>
+        <a href="videos.html" class="active">VIDEOS</a>
+        <a href="about.html">ABOUT</a>
+        <a href="live.html">LIVE</a>
+
+    </nav>
+
+    <div class="container">
+        <h2>Media Unit Video Gallery</h2>
+        
+        <!-- JavaScript එක මඟින් වීඩියෝ slots auto නිර්මාණය කර මෙතනට ඇතුලත් කරයි -->
+        <div class="video-grid" id="gallery-container"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Media Unit Website. Infinite Liquid Glass Video Engine.</p>
+    </footer>
+
+    <!-- වීඩියෝ ලැයිස්තුව පාලනය කරන JavaScript කෝඩ් එක -->
+    <script>
+        /* 
+          [භාවිතා කරන ආකාරය]:
+          ඔයා 'videos' ෆෝල්ඩරයට දාන වීඩියෝ වල නම්, මාතෘකා සහ විස්තර 
+          පහත තියෙන විදියට ඇතුලත් කරන්න. ඔයා මෙතනට දාන දාන හැම එකටම 
+          වෙබ් පිටුවේ අලුත් Slot එකක් auto හැදෙනවා!
+        */
+        const myVideos = [
+            { file: "video1.mp4", title: "Sports Meet 2026 Highlights", desc: "නිවාසාන්තර ක්‍රීඩා උත්සවයේ විශේෂ අවස්ථා සහ ජයග්‍රහණ." },
+            { file: "video2.mp4", title: "Media Day Main Promo", desc: "වාර්ෂික මාධ්‍ය දිනය වෙනුවෙන් සකස් කරන ලද ප්‍රධාන වීඩියෝව." },
+            { file: "video3.mp4", title: "General Meeting Short Clip", desc: "මාධ්‍ය ඒකකයේ නිලධාරී මණ්ඩල රැස්වීම් දර්ශන." },
+            
+            // ඔයාට 4 වෙනි, 5 වෙනි හෝ ඕනෑම වීඩියෝ ප්‍රමාණයක් දාන්න ඕන නම්, 
+            // පහත විදියට කොමාවක් (,) දාලා අලුත් පේළියක් එකතු කරන්න විතරයි තියෙන්නේ:
+            // { file: "video4.mp4", title: "මෙහි මාතෘකාව ලියන්න", desc: "මෙහි විස්තරය ලියන්න" }
+        ];
+
+        // වීඩියෝ ලැයිස්තුව කියවා HTML slots සාදන ක්‍රියාවලිය
+        const galleryContainer = document.getElementById('gallery-container');
+        
+        myVideos.forEach(video => {
+            const cardHTML = `
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <video controls>
+                            <source src="videos/${video.file}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>${video.title}</h3>
+                        <p>${video.desc}</p>
+                    </div>
+                </div>
+            `;
+            galleryContainer.innerHTML += cardHTML;
+        });
+    </script>
+
+</body>
+</html>

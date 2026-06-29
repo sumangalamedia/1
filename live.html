@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Unit - Liquid Glass LIVE Stream</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+        body { 
+            font-family: 'Poppins', 'Noto Sans Sinhala', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background: linear-gradient(135deg, #020617 0%, #071430 40%, #0b2559 100%);
+            background-attachment: fixed;
+            color: #f8fafc; 
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        header { 
+            background: rgba(2, 6, 23, 0.5); 
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            color: white; 
+            padding: 25px 40px; 
+            border-bottom: 2px solid rgba(255, 204, 0, 0.4); 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-text { text-align: center; flex: 1; }
+        header h1 { margin: 0; font-size: 2.6rem; font-weight: 700; letter-spacing: 2px; }
+        header p { margin: 6px 0 0 0; color: #FFCC00; font-size: 1.1rem; font-weight: 500; }
+        .header-logo { width: 95px; height: 95px; object-fit: contain; }
+        
+        nav { 
+            background: rgba(15, 23, 42, 0.4); 
+            backdrop-filter: blur(10px);
+            padding: 16px; 
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        nav a { 
+            color: #cbd5e1; 
+            text-decoration: none; 
+            margin: 0 6px; 
+            font-weight: 600; 
+            font-size: 0.95rem; 
+            padding: 10px 20px;
+            border-radius: 30px; 
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+        }
+        nav a:hover, nav a.active { 
+            color: #FFCC00; 
+            background: rgba(255, 204, 0, 0.15);
+            border-color: rgba(255, 204, 0, 0.6);
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.35);
+            transform: translateY(-3px); 
+        }
+        
+        .container { max-width: 1140px; margin: 40px auto; padding: 0 20px; display: flex; flex-wrap: wrap; gap: 30px; }
+        
+        .main-content { 
+            flex: 2; 
+            min-width: 300px; 
+            background: rgba(255, 255, 255, 0.06); 
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 35px; 
+            border-radius: 20px; 
+            border: 1px solid rgba(255, 255, 255, 0.13);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.25);
+        }
+        
+        .sidebar { 
+            flex: 1; 
+            min-width: 250px; 
+            background: rgba(255, 255, 255, 0.04); 
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 35px; 
+            border-radius: 20px; 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 5px solid #ef4444; 
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.25);
+        }
+        
+        .live-header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid rgba(255, 204, 0, 0.3);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        h2 { color: #FFCC00; font-size: 1.6rem; font-weight: 700; margin: 0; }
+        
+        .live-badge {
+            background-color: #ef4444;
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.6);
+            animation: blinker 1.5s linear infinite;
+        }
+        .live-dot { width: 8px; height: 8px; background-color: white; border-radius: 50%; }
+        @keyframes blinker { 50% { opacity: 0.4; } }
+        
+        /* Video Frame */
+        .live-player-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; 
+            height: 0;
+            overflow: hidden;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: #000;
+        }
+        .live-player-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%; border: 0;
+        }
+        
+        p { line-height: 1.8; color: #e2e8f0; font-size: 1rem; }
+        .status-text { color: #a8a29e; font-size: 0.9rem; margin-top: 15px; display: block; }
+        
+        .info-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .info-table td { padding: 14px 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.95rem; }
+        .info-table td:first-child { font-weight: 600; color: #FFCC00; width: 40%; }
+        .info-table td:last-child { color: #cbd5e1; }
+        
+        footer { 
+            background: rgba(2, 6, 23, 0.7);
+            backdrop-filter: blur(10px);
+            color: #94a3b8; 
+            text-align: center; 
+            padding: 25px; 
+            border-top: 2px solid rgba(255, 204, 0, 0.3); 
+            margin-top: 60px; 
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="images/school-logo.png" alt="School Logo" class="header-logo">
+        <div class="header-text">
+            <h1>MEDIA UNIT</h1>
+            <p>Royal College Style Concept Design</p>
+        </div>
+        <img src="images/media-logo.png" alt="Media Unit Logo" class="header-logo">
+    </header>
+
+    <nav>
+        <a href="index.html">මුල් පිටුව (Slot 1)</a>
+        <a href="page2.html">නිලධාරී මණ්ඩලය (Slot 2)</a>
+        <a href="videos.html">වීඩියෝ (Slot 3)</a>
+        <a href="photos.html">ඡායාරූප (Slot 4)</a>
+        <a href="about.html">අප ගැන (Slot 5)</a>
+        <a href="live.html" class="active">සජීවී (Slot 6)</a>
+    </nav>
+
+    <div class="container">
+        <div class="main-content">
+            <div class="live-header-container">
+                <h2>Official Live Broadcast</h2>
+                <div class="live-badge">
+                    <div class="live-dot"></div>LIVE
+                </div>
+            </div>
+            
+            <div class="live-player-wrapper" id="live-player-slot"></div>
+
+            <span class="status-text">✦ සටහන: ලයිව් එකක් නොමැති වෙලාවට පැරණි වීඩියෝවක් මෙහි පෙන්වනු ඇත.</span>
+            <p style="margin-top: 20px;">මාධ්‍ය ඒකකය මඟින් මෙහෙයවනු ලබන සියලුම සජීවී වැඩසටහන්, උත්සව, සහ විශේෂ නිවේදන මෙම පිටුව ඔස්සේ සජීවීව නැරඹිය හැක.</p>
+        </div>
+
+        <div class="sidebar">
+            <h2>Stream Details</h2>
+            <table class="info-table">
+                <tr><td>වැඩසටහන:</td><td>ප්‍රධාන උත්සවය</td></tr>
+                <tr><td>තත්ත්වය:</td><td style="color: #4ade80; font-weight: 600;">Online</td></tr>
+                <tr><td>විකාශනය:</td><td>YouTube Live</td></tr>
+                <tr><td>විභේදනය:</td><td>1080p HD</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Media Unit Website. Powered by Premium Live Streaming Engine.</p>
+    </footer>
+
+    <script>
+        /* [භාවිතා කරන ආකාරය]:
+           ඔයාලා ලයිව් ස්ට්‍රීම් එකක් පටන් ගත්තම ලැබෙන ලින්ක් එකේ අග තියෙන 
+           වීඩියෝ ID එක (අකුරු සහ ඉලක්කම් 11ක්) මෙතන ඇතුලත් කරන්න.
+           
+           (ලයිව් එකක් නැති වෙලාවට ඔයාලගේ චැනල් එකේ තියෙන වෙනත් සාමාන්‍ය 
+           වීඩියෝ එකක ID එකක් වුණත් මෙතනට දාලා තියන්න පුළුවන්!)
+        */
+        const CURRENT_LIVE_ID = "EgJfsqeR7GXEswus"; // <--- මෙතනට ඔයාගේ Live Video ID එක දාන්න!
+
+        // වීඩියෝ ප්ලේයර් එක පිටුවට ඇතුලත් කිරීම
+        document.getElementById('live-player-slot').innerHTML = `
+            <iframe src="https://www.youtube.com/embed/${CURRENT_LIVE_ID}" allowfullscreen></iframe>
+        `;
+    </script>
+</body>
+</html>

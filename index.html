@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Unit -SRI SUMANGALA NATIONAL SCHOOL</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+        body { 
+            font-family: 'Poppins', 'Noto Sans Sinhala', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            /* Liquid Glass එක ඉස්මතු වීමට පාවිච්චි කර ඇති ගැඹුරු රාජකීය පසුබිම */
+            background: linear-gradient(135deg, #020617 0%, #071430 40%, #0b2559 100%);
+            background-attachment: fixed;
+            color: #f8fafc; 
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* [Liquid Glass Header] */
+        header { 
+            background: rgba(2, 6, 23, 0.5); 
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            color: white; 
+            padding: 25px 40px; 
+            border-bottom: 2px solid rgba(255, 204, 0, 0.4); 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-text { text-align: center; flex: 1; }
+        header h1 { margin: 0; font-size: 2.6rem; font-weight: 700; letter-spacing: 2px; text-shadow: 0 0 15px rgba(255,255,255,0.2); }
+        header p { margin: 6px 0 0 0; color: #FFCC00; font-size: 1.1rem; font-weight: 500; letter-spacing: 1px; text-shadow: 0 0 10px rgba(255, 204, 0, 0.3); }
+        
+        .header-logo {
+            width: 95px;
+            height: 95px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 12px rgba(255,255,255,0.15));
+        }
+        
+        /* [Liquid Glass Navigation Bar] */
+        nav { 
+            background: rgba(15, 23, 42, 0.4); 
+            backdrop-filter: blur(10px);
+            padding: 16px; 
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        /* [Liquid Glass Buttons] - ප්ලාස්ටික්/වීදුරු බටන් ස්ටයිල් එක */
+        nav a { 
+            color: #cbd5e1; 
+            text-decoration: none; 
+            margin: 0 10px; 
+            font-weight: 600; 
+            font-size: 0.95rem; 
+            padding: 10px 24px;
+            border-radius: 30px; /* Pill Shape */
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: inset 0 1px 1px rgba(255,255,255,0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+        }
+        
+        /* බටන් එක උඩට මවුස් එක ගෙනිච්චම රන්වන් පාටින් Glow වන ආකාරය */
+        nav a:hover, nav a.active { 
+            color: #FFCC00; 
+            background: rgba(255, 204, 0, 0.15);
+            border-color: rgba(255, 204, 0, 0.6);
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.35), inset 0 1px 10px rgba(255, 204, 0, 0.2);
+            transform: translateY(-3px); /* බටන් එක ලස්සනට උඩට ඉස්සීම */
+        }
+        
+        .container { max-width: 1140px; margin: 40px auto; padding: 0 20px; display: flex; flex-wrap: wrap; gap: 30px; }
+        
+        /* [Liquid Glass Containers] - වීදුරු තැටි මෙන් පෙනෙන කොටස් */
+        .main-content { 
+            flex: 2; 
+            min-width: 300px; 
+            background: rgba(255, 255, 255, 0.06); 
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 35px; 
+            border-radius: 20px; 
+            border: 1px solid rgba(255, 255, 255, 0.13);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.25), inset 0 1px 2px rgba(255,255,255,0.1);
+        }
+        
+        .sidebar { 
+            flex: 1; 
+            min-width: 250px; 
+            background: rgba(255, 255, 255, 0.04); 
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 35px; 
+            border-radius: 20px; 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 5px solid rgba(255, 204, 0, 0.7); /* උඩින් රන්වන් දාරයක් */
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.25), inset 0 1px 2px rgba(255,255,255,0.1);
+        }
+        
+        h2 { color: #FFCC00; font-size: 1.6rem; font-weight: 700; border-bottom: 2px solid rgba(255, 204, 0, 0.3); padding-bottom: 10px; margin-top: 0; text-shadow: 0 0 10px rgba(255, 204, 0, 0.2); }
+        
+        /* [Glass Photo Slot] */
+        .photo-slot { 
+            text-align: center; 
+            margin-bottom: 30px; 
+            background: rgba(255, 255, 255, 0.02); 
+            padding: 14px; 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            border-radius: 16px; 
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.2);
+        }
+        .photo-slot p { margin: 0 0 10px 0; color: #94a3b8; font-size: 0.85rem; font-weight: 500; }
+        .photo-slot img { max-width: 100%; height: auto; border-radius: 10px; display: block; margin: 0 auto; border: 1px solid rgba(255,255,255,0.1); }
+        
+        p { line-height: 1.8; color: #e2e8f0; font-size: 1rem; }
+        
+        .info-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .info-table td { padding: 14px 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.95rem; }
+        .info-table td:first-child { font-weight: 600; color: #FFCC00; width: 40%; text-shadow: 0 0 5px rgba(255,204,0,0.1); }
+        .info-table td:last-child { color: #cbd5e1; }
+        
+        footer { 
+            background: rgba(2, 6, 23, 0.7);
+            backdrop-filter: blur(10px);
+            color: #94a3b8; 
+            text-align: center; 
+            padding: 25px; 
+            border-top: 2px solid rgba(255, 204, 0, 0.3); 
+            margin-top: 60px; 
+            font-size: 0.9rem; 
+            font-weight: 500; 
+        }
+        
+        @media (max-width: 768px) {
+            header { flex-direction: column; text-align: center; padding: 25px 20px; }
+            header h1 { font-size: 2.2rem; }
+            .header-logo { width: 80px; height: 80px; }
+            .container { margin: 20px auto; }
+            nav a { margin: 5px; padding: 8px 18px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="images/school-logo.jpg" alt="School Logo" class="header-logo">
+        
+        <div class="header-text">
+            <h1>MEDIA UNIT</h1>
+            <p>SRI SUMANGALA NATIONAL SCHOOL</p>
+        </div>
+        
+        <img src="images/media-logo.jpg" alt="Media Unit Logo" class="header-logo">
+    </header>
+
+    <nav>
+        <a href="index.html" class="active">HOME</a>
+        <a href="photos.html">PHOTOS</a>
+        <a href="videos.html">VIDEOS</a>
+        <a href="about.html">ABOUT</a>
+        <a href="live.html">LIVE</a>
+    </nav>
+
+    <div class="container">
+        <div class="main-content">
+            <h2>Get To Know Us</h2>
+            
+            <div class="photo-slot">
+                <p>[ auto update slot: images/main-photo.jpg ]</p>
+                <img src="images/main-photo.jpg" alt="Media Unit Main Photo">
+            </div>
+
+            <p>මාධ්‍ය ඒකකය මඟින් පාසලේ සියලුම සන්නිවේදන, නිවේදන, වීඩියෝකරණ සහ ඡායාරූපකරණ කටයුතු මෙන්ම වෙබ් අඩවි නිර්මාණ කටයුතු ද ඉතා සාර්ථකව සිදු කරනු ලබයි.</p>
+        </div>
+
+        <div class="sidebar">
+            <h2>General Info</h2>
+            <table class="info-table">
+                <tr><td>රැස්වීම් දිනය:</td><td>සෑම බදාදාවකම</td></tr>
+                <tr><td>වේලාව:</td><td>පස්වරු 1:30 ට</td></tr>
+                <tr><td>ස්ථානය:</td><td>මාධ්‍ය කාමරය</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Media Unit Website. Crafted with Premium Liquid Glass Architecture.</p>
+    </footer>
+
+</body>
+</html>
